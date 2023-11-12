@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+"use client";
+import { ReactNode, useState } from "react";
 import MksContext from "./MksContext";
 
 interface MksProviderProps {
@@ -6,9 +7,18 @@ interface MksProviderProps {
 }
 
 export const MksProvider = ({children}: MksProviderProps) => {
+ const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+ const toggleDrawer = (open: boolean) => {
+   setIsDrawerOpen(open);
+ };
+
      return (
        <MksContext.Provider
-         value={{}}
+         value={{
+           isDrawerOpen,
+           toggleDrawer,
+         }}
        >
          {children}
        </MksContext.Provider>

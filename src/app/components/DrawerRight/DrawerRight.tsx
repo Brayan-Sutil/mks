@@ -4,48 +4,24 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import DreawerContent from "./DreawerContent/DreawerContent";
-
-type Anchor = "top" | "left" | "bottom" | "right";
+import { useMks } from "@/app/Context/MksContext";
 
 const DrawerRight = () => {
-  const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event &&
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
-
-      setState({ ...state, [anchor]: open });
-    };
+  const {isDrawerOpen, toggleDrawer} = useMks();
 
   return (
     <div>
-      {(["right"] as const).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+        <React.Fragment>
           <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
+            anchor={"right"}
+            open={isDrawerOpen}
+            onClose={() => toggleDrawer(false)}
+            onOpen={() => toggleDrawer(true)}
             ModalProps={{ BackdropProps: { invisible: true } }}
           >
-           <DreawerContent/>
+            <DreawerContent />
           </SwipeableDrawer>
         </React.Fragment>
-      ))}
     </div>
   );
 };
