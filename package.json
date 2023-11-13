@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,6 +14,9 @@
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.13",
     "@mui/styled-engine-sc": "^6.0.0-alpha.1",
+    "@tanstack/react-query": "^5.8.2",
+    "@tanstack/react-query-devtools": "^5.8.2",
+    "@tanstack/react-query-next-experimental": "^5.8.2",
     "next": "14.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
