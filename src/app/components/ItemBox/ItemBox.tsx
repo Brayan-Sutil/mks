@@ -20,6 +20,7 @@ interface IProps {
 }
 
 const ItemBox = ({ description, itemName, photo, price, onclick }: IProps) => {
+
   return (
     <ItemBoxPaper elevation={6}>
       <ItemBoxContainer>
@@ -32,6 +33,7 @@ const ItemBox = ({ description, itemName, photo, price, onclick }: IProps) => {
           <DescriptionItem variant="body1">
             {description}
           </DescriptionItem>
+
         </ItemBoxText>
         <Button
           variant="contained"

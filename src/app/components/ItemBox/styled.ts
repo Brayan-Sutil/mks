@@ -19,8 +19,11 @@ export const ItemBoxContainer = styled(Box)`
 export const ItemBoxText = styled(Box)`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
+  height: 100%;
+  margin-bottom: 10px;
 `;
 
 export const MyBoxClass = styled(Box)`
@@ -51,3 +54,4 @@ export const DescriptionItem = styled(Typography)`
   height: 110px;
   margin: 15px 0 !important;
 `;
+
