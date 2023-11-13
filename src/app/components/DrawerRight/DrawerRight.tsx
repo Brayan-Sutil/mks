@@ -7,21 +7,22 @@ import DreawerContent from "./DreawerContent/DreawerContent";
 import { useMks } from "@/app/Context/MksContext";
 
 const DrawerRight = () => {
-  const {isDrawerOpen, toggleDrawer} = useMks();
+  const { isDrawerOpen, toggleDrawer } = useMks();
 
   return (
     <div>
-        <React.Fragment>
-          <SwipeableDrawer
-            anchor={"right"}
-            open={isDrawerOpen}
-            onClose={() => toggleDrawer(false)}
-            onOpen={() => toggleDrawer(true)}
-            ModalProps={{ BackdropProps: { invisible: true } }}
-          >
-            <DreawerContent />
-          </SwipeableDrawer>
-        </React.Fragment>
+      <React.Fragment>
+        <SwipeableDrawer
+          data-testid="drawer"
+          anchor={"right"}
+          open={isDrawerOpen}
+          onClose={() => toggleDrawer(false)}
+          onOpen={() => toggleDrawer(true)}
+          ModalProps={{ BackdropProps: { invisible: true } }}
+        >
+          <DreawerContent />
+        </SwipeableDrawer>
+      </React.Fragment>
     </div>
   );
 };
