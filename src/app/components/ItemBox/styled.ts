@@ -1,9 +1,9 @@
-import { Box, Paper, Typography, Button } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 import styled from "styled-components";
 
 export const ItemBoxPaper = styled(Paper)`
-  width: 220px;
-  height: 350px;
+  width: 250px;
+  height: 400px;
   margin: 0;
   margin: 15px;
 `;
@@ -29,28 +29,29 @@ export const ItemBoxText = styled(Box)`
 export const MyBoxClass = styled(Box)`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 15px;
+  justify-content: center;
+  height: 50px; 
+  margin-top: 10px;
 `
 export const PriceItem = styled(Button)`
   width: 80px;
-  height: 30px;
-  font-weight: 600;
+  height: 35px;
   background-color: black;
-  pointer-events: none;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bold;
 `
 
-export const TypographyName = styled(Typography)`
+export const NameItem = styled(Typography)`
   font-size: 18px;
-  font-weight: 600;
-  line-height: 20px;
+  font-weight: bold;
+  color: black;
+  width: 150px;
 `;
 
-export const TypographyDescripiton = styled(Typography)`
-  font-weight: 300;
-  line-height: 17px;
-  color: #2c2c2c;
-  font-size: 14px;
+export const DescriptionItem = styled(Typography)`
+  font-size: 14px !important;
   text-align: center;
+  height: 110px;
+  margin: 15px 0 !important;
 `;
+

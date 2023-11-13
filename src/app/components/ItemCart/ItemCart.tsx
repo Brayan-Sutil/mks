@@ -1,18 +1,31 @@
-import { Button, Typography } from "@mui/material";
-import { PaperStyled, NameItem, ValueItem } from "./styled";
+import { PaperStyled, NameItem, ValueItem, FabIcon } from "./styled";
 import ButtonCout from "./ButtonCout/ButtonCout";
+import CloseIcon from "@mui/icons-material/Close";
 
-const ItemCart = () => {
-        return (
-            <PaperStyled elevation={4}>
-                <img src="https://picsum.photos/200/300" alt="random" height={60} width={60} />
-                <NameItem>Apple Watch Series 4 GPS</NameItem>
-                <ButtonCout />
-                <ValueItem>
-                    R$ 2.899,00
-                </ValueItem>
-            </PaperStyled>
-        );
+interface IProps {
+  onclick: () => void;
+  nameItemCart: string;
+  priceItemCart: string;
+  photoItemCart: string;
 }
 
-export default ItemCart
+const ItemCart = ({
+  onclick,
+  nameItemCart,
+  priceItemCart,
+  photoItemCart,
+}: IProps) => {
+  return (
+    <PaperStyled elevation={6}>
+      <img src={photoItemCart} alt="random" height={60} width={60} />
+      <NameItem>{nameItemCart}</NameItem>
+      <ButtonCout />
+      <ValueItem>R${priceItemCart}</ValueItem>
+      <FabIcon color="primary" onClick={onclick}>
+        <CloseIcon fontSize="small"/>
+      </FabIcon>
+    </PaperStyled>
+  );
+};
+
+export default ItemCart;
