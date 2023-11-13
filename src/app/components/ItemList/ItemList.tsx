@@ -1,12 +1,10 @@
 "use client";
-import { Box, Typography, Button, Skeleton } from "@mui/material";
-import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { Wrapper } from "./styled";
 import ItemBox from "../ItemBox/ItemBox";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/api";
-import { useMemo } from "react";
 import { IProduct } from "@/types/products";
+import { useMks } from "@/app/Context/MksContext";
 
 const ItemList = () => {
   const { data } = useQuery({
@@ -14,11 +12,19 @@ const ItemList = () => {
     queryFn: () => getProducts(1),
     staleTime: 10 * 1000,
   });
+  const {addProduct} = useMks()
 
   return (
     <Wrapper>
       {data?.products.map((product: IProduct) => (
-        <ItemBox key={product.id} />
+        <ItemBox
+          key={product.id}
+          description={product.description}
+          itemName={product.name}
+          photo={product.photo}
+          price={product.price}
+          onclick={() => addProduct(product)}
+        />
       ))}
     </Wrapper>
   );

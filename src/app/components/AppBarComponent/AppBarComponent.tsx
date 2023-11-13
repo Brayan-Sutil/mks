@@ -8,7 +8,7 @@ import { CustomToolbar } from "./styled";
 import { useMks } from "@/app/Context/MksContext";
 
 const AppBarComponent = () => {
-  const { toggleDrawer } = useMks()
+  const { toggleDrawer, products } = useMks()
   
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -22,7 +22,7 @@ const AppBarComponent = () => {
             sx={{ color: "black", bgcolor: "white" }}
             onClick={() => toggleDrawer(true)}
           >
-            5
+            {products.length}
           </Button>
         </CustomToolbar>
       </AppBar>

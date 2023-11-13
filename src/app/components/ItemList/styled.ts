@@ -1,7 +1,6 @@
-import { Box, Paper } from "@mui/material";
 import styled from "styled-components";
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled("div")`
   width: fit-content;
   height: 610px;
   margin: auto;
