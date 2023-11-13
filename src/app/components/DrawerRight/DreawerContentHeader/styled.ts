@@ -15,6 +15,5 @@ export const BoxStyled = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 100%;
 `;
 
