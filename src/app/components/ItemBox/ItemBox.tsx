@@ -7,25 +7,30 @@ import {
   ItemBoxText,
   MyBoxClass,
   PriceItem,
+  TypographyName,
+  TypographyDescripiton,
 } from "./styled";
 
-const ItemBox = () => {
+interface IProps {
+  descripiton?: string;
+  nameProduct?: string;
+  photo?: string;
+  itemPrice?: string;
+}
+
+const ItemBox = ({ descripiton, nameProduct, photo, itemPrice }: IProps) => {
   return (
-    <ItemBoxPaper>
+    <ItemBoxPaper elevation={6}>
       <ItemBoxContainer>
-        <img
-          src="https://via.placeholder.com/150x120.png"
-          alt="Item"
-          style={{ width: "100%", height: 100 }}
-        />
+        <img src={photo} alt="Item" style={{ width: "100%", height: 150 }} />
         <ItemBoxText>
           <MyBoxClass>
-            <Typography variant="h6">Apple Macbook Pro</Typography>
-            <PriceItem />
+            <TypographyName variant="h6">{nameProduct}</TypographyName>
+            <PriceItem variant="contained">R${itemPrice}</PriceItem>
           </MyBoxClass>
-          <Typography variant="body1" sx={{ mt: 1 }}>
-            Redesigned from scratch and completely revised.
-          </Typography>
+          <TypographyDescripiton variant="body1" sx={{ mt: 1 }}>
+            {descripiton}
+          </TypographyDescripiton>
         </ItemBoxText>
         <Button
           variant="contained"

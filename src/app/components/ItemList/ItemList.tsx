@@ -18,7 +18,13 @@ const ItemList = () => {
   return (
     <Wrapper>
       {data?.products.map((product: IProduct) => (
-        <ItemBox key={product.id} />
+        <ItemBox
+          key={product.id}
+          descripiton={product.description}
+          nameProduct={product.name}
+          photo={product.photo}
+          itemPrice={product.price.toString()}
+        />
       ))}
     </Wrapper>
   );
