@@ -2,29 +2,37 @@
 import { ReactNode, useEffect, useState } from "react";
 import MksContext from "./MksContext";
 import { IProduct } from "@/types/products";
-
 interface MksProviderProps {
   children: ReactNode;
 }
-
 export const MksProvider = ({children}: MksProviderProps) => {
-  const savedProduct = localStorage.getItem("ListItem");
-  const todosLength = savedProduct ? JSON.parse(savedProduct) : [];
-  const [product, setProduct] = useState<IProduct[]>(todosLength);
+  const [product, setProduct] = useState<IProduct[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [productPrice, setProductPrice] = useState(0);
   const [open, setOpen] = useState(false);
-  localStorage.setItem("ListItem", JSON.stringify(product));
 
   const clearLocalStorageAndScroll = () =>  {
     setProduct([]);
+    localStorage.removeItem("ListItem");
   }
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedProduct = localStorage.getItem("ListItem");
+      const todosLength = savedProduct ? JSON.parse(savedProduct) : [];
+      setProduct(todosLength);
+      localStorage.setItem("ListItem", JSON.stringify(todosLength));
+    }
+  }, []);
 
   useEffect(() => {
     const totalPrice: number = product.reduce((total: number, item: any) => {
       return total + parseInt(item.price)
     }, 0);
     setProductPrice(totalPrice);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("ListItem", JSON.stringify(product));
+    }
   }, [product]);
 
   const onOpenModal = (value: boolean) => {
@@ -57,22 +65,22 @@ export const MksProvider = ({children}: MksProviderProps) => {
     setIsDrawerOpen(open);
   };
 
-     return (
-       <MksContext.Provider
-         value={{
-           open,
-           products: product,
-           productPrice,
-           isDrawerOpen,
-           toggleDrawer,
-           addProduct,
-           removeProduct,
-           addPrice,
-           onOpenModal,
-           clearLocalStorageAndScroll,
-         }}
-       >
-         {children}
-       </MksContext.Provider>
-     );
+  return (
+    <MksContext.Provider
+      value={{
+        open,
+        products: product,
+        productPrice,
+        isDrawerOpen,
+        toggleDrawer,
+        addProduct,
+        removeProduct,
+        addPrice,
+        onOpenModal,
+        clearLocalStorageAndScroll,
+      }}
+    >
+      {children}
+    </MksContext.Provider>
+  );
 };
