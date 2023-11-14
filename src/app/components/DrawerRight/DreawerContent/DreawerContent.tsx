@@ -1,6 +1,9 @@
 import React, { Box } from "@mui/material";
 import DrawerContenrHeader from "../DreawerContentHeader/DreawerContentHeader";
 import ListItemCart from "../../ListItemCart/ListItemCart";
+import { FooterBotton } from "../FooterDreawer/styled";
+import FooterDreawer from "../FooterDreawer/FooterDreawer";
+import PriceDreawer from "../PriceDreawer/PriceDreawer";
 
 const DreawerContent = () => {
     return (
@@ -9,6 +12,8 @@ const DreawerContent = () => {
       >
         <DrawerContenrHeader />
         <ListItemCart/>
+        <PriceDreawer />
+        <FooterDreawer />
       </Box>
     );
 }

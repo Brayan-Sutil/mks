@@ -5,7 +5,7 @@ import { Whapper } from "./styled";
 const ListItemCart = () => {
   const {products, removeProduct} = useMks()
     return (
-      <Whapper>
+      <Whapper >
         {products.map((product, index) => (
           <ItemCart 
             photoItemCart={product.photo}

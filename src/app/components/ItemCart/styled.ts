@@ -25,6 +25,6 @@ export const FabIcon = styled(Fab)`
   background-color: black !important;
   height: 35px !important;
   width: 35px !important;
-  right: -30px;
-  top: -45px;
+  right: -10px;
+  top: -10px;
 `;
