@@ -1,10 +1,12 @@
+import { useMks } from "@/app/Context/MksContext";
 import { StyledBox, StyledTypography } from "./styled";
 
 const PriceDreawer = () => {
+  const {productPrice} = useMks()
     return (
       <StyledBox>
         <StyledTypography>Total:</StyledTypography>
-        <StyledTypography>R$ {"798"}</StyledTypography>
+        <StyledTypography>R$ {productPrice}</StyledTypography>
       </StyledBox>
     );
 }
