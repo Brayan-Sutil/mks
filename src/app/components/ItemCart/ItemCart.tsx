@@ -19,10 +19,10 @@ const ItemCart = ({
     <PaperStyled elevation={6}>
       <img src={photoItemCart} alt="random" height={60} width={60} />
       <NameItem>{nameItemCart}</NameItem>
-      <ButtonCout />
+      <ButtonCout value={parseInt(priceItemCart)} />
       <ValueItem>R${priceItemCart}</ValueItem>
       <FabIcon color="primary" onClick={onclick}>
-        <CloseIcon fontSize="small"/>
+        <CloseIcon fontSize="small" />
       </FabIcon>
     </PaperStyled>
   );

@@ -4,6 +4,7 @@ import DrawerRight from "../DrawerRight/DrawerRight";
 import ItemBox from "../ItemBox/ItemBox";
 import ItemList from "../ItemList/ItemList";
 import { Skeleton } from "@mui/material";
+import ModalTank from "../ModalTank/ModalTank";
 
 const  Wapper = () => {
     return (
@@ -15,6 +16,7 @@ const  Wapper = () => {
             >
                 <ItemList/>
             </Suspense>
+            <ModalTank/>
         </div>
     )
 }
